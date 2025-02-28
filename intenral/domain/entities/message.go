@@ -1,12 +1,20 @@
 package entities
 
-import "time"
+import (
+	"github.com/google/uuid"
+	"time"
+)
+
+type MessageId string
+
+func NewMessageId() MessageId {
+	return MessageId(uuid.New().String())
+}
 
 type Message struct {
-	Id      string
-	ChatID  ChatID    `json:"chat_id"`
-	From    UserID    `json:"from"`
-	To      UserID    `json:"to"`
+	Id      MessageId
+	ChatID  ChatID    `json:"chat_id" bson:"chat_id"`
+	From    UserID    `json:"from" bson:"from"`
 	Content string    `json:"content"`
 	Date    time.Time `json:"date"`
 }

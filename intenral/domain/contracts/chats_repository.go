@@ -2,7 +2,8 @@ package contracts
 
 import (
 	"context"
-	
+
+	"go-kafka-chat/intenral/domain/entities"
 )
 
 //go:generate mockery --name=ChatsRepository --inpackage-suffix --inpackage --case underscore
